@@ -4,9 +4,13 @@ module.exports = function(grunt) {
     browserify: {
       test: {
         options: {
+          browserifyOptions: {
+            debug: true
+          },
           transform: [
                       ['babelify', {presets: ['es2015']}]
-                     ]
+                     ],
+          plugin: ['proxyquireify/plugin']
         },
         src: ['testfile.js'],
         dest: 'testfile.browserify.js'
